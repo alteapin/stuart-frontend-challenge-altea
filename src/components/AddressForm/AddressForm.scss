@@ -3,17 +3,19 @@
     margin: 32px;
     border-radius: 8px;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,0.10);
+    padding: 8px;
 }
 
 .input-address {
     border-radius: 8px;
     height: 32px;
+    width: 192px;
     background-color: #F0F3F7;
     outline: none;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     color: #8596A6;
-    margin: 16px;
+    margin: 8px;
     padding: 0 12px;
 }
 
@@ -26,4 +28,18 @@
 .form-image{
     margin-left: 8px;
     margin-bottom: -10px;
+}
+
+.button-form{
+    border-radius: 4px;
+    height: 40px;
+    width: 192px;
+    box-shadow: 0 1px 2px 0 rgba(16, 162, 234, 0.30);
+    background-image: linear-gradient(to right, #10A2EA , #0F99E8);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #FFF;
+    outline: none;
+    margin: 8px;
+    margin-left: 48px;
 }

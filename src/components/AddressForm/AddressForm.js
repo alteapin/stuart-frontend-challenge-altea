@@ -17,6 +17,11 @@ class AddressForm extends Component {
         
     }
 
+    onSubmit = (event) => {
+        event.preventDefault();
+        console.log(this.state)
+    }
+
     render () {
         return (
             <div className="form-container">
@@ -30,7 +35,7 @@ class AddressForm extends Component {
                 value={this.state.pickUpAdress} 
                 onChange={event => this.changeInputValue(event)}/>
                 </div>
-
+                
                 <br />
 
                 <div>
@@ -44,6 +49,8 @@ class AddressForm extends Component {
                 </div>
 
                 <br />
+                <button className="button-form"
+                onClick={event => this.onSubmit(event)}>Create a job</button>
             </form>
             </div>
         )
