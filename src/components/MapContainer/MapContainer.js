@@ -19,7 +19,8 @@ export class MapContainer extends Component {
                     lat: -1.2884,
                     lng: 36.8233
                 }
-            }>
+            }
+            >
 
                 <Marker onClick={this.onMarkerClick}
                     name={'Current location'} />

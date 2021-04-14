@@ -5,24 +5,9 @@ import dropOffImage from '../../../src/images/dropOffBadgeBlack.svg';
 
 
 class AddressForm extends Component {
-    state = {
-        pickUpAdress: '',
-        dropOffAdress: ''
-    }
-
-    changeInputValue = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-        
-    }
-
-    onSubmit = (event) => {
-        event.preventDefault();
-        console.log(this.state)
-    }
-
     render () {
+        const { onChange, pickUpAdress, dropOffAdress } = this.props;
+
         return (
             <div className="form-container">
             <form>
@@ -32,8 +17,8 @@ class AddressForm extends Component {
                 <input className="input-address"
                 name='pickUpAdress' 
                 placeholder='Pick up address'   
-                value={this.state.pickUpAdress} 
-                onChange={event => this.changeInputValue(event)}/>
+                value={pickUpAdress} 
+                onChange={onChange}/>
                 </div>
                 
                 <br />
@@ -44,13 +29,12 @@ class AddressForm extends Component {
                 <input className="input-address"
                 name='dropOffAdress'
                 placeholder='Drop off address'
-                value={this.state.dropOffAdress}
-                onChange={event => this.changeInputValue(event)} />
+                value={dropOffAdress}
+                onChange={onChange} />
                 </div>
 
                 <br />
-                <button className="button-form"
-                onClick={event => this.onSubmit(event)}>Create a job</button>
+                <button className="button-form">Create a job</button>
             </form>
             </div>
         )
