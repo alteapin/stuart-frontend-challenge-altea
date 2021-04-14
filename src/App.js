@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import AddressForm from './components/AddressForm/AddressForm';
 import MapContainer from './components/MapContainer/MapContainer';
-import './App.scss';
 
+import './App.scss';
 
 export class App extends Component {
   constructor(props) {
@@ -16,19 +16,20 @@ export class App extends Component {
   }
 
   handleInputChange(event) {
-    console.log(this.state)
-
+    console.log('value', event.target.value)
     this.setState({
       [event.target.name]: event.target.value
     });
   }
 
-
   render() { 
+    const pickUpAdress = this.state.pickUpAdress;
+    const dropOffAdress = this.state.dropOffAdress;
+
   return (
     <div className="App">
       <header className="App-header">
-        <AddressForm onChange={this.handleInputChange}/>
+        <AddressForm onChange={this.handleInputChange} pickUpAdress={pickUpAdress} dropOffAdress={dropOffAdress}/>
         <MapContainer />
       </header>
 

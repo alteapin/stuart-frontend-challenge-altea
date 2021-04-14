@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import './AddressForm.scss';
-import pickUpImage from '../../../src/images/pickUpBadgeBlank.svg';
-import dropOffImage from '../../../src/images/dropOffBadgeBlack.svg';
+import pickUpImageBlank from '../../../src/images/pickUpBadgeBlank.svg';
+import dropOffImageBlank from '../../../src/images/dropOffBadgeBlack.svg';
 
 
 class AddressForm extends Component {
+
     render () {
         const { onChange, pickUpAdress, dropOffAdress } = this.props;
-
         return (
             <div className="form-container">
             <form>
                 <div>
                 <img className="form-image"
-                src={pickUpImage} alt="x"/>
+                src={pickUpImageBlank} alt="x"/>
                 <input className="input-address"
                 name='pickUpAdress' 
                 placeholder='Pick up address'   
@@ -25,7 +25,7 @@ class AddressForm extends Component {
 
                 <div>
                 <img className="form-image"
-                src={dropOffImage} alt="x" />
+                src={dropOffImageBlank} alt="x" />
                 <input className="input-address"
                 name='dropOffAdress'
                 placeholder='Drop off address'
