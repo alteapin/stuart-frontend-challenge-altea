@@ -8,10 +8,12 @@ export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      address: '',
       pickUpAdress: '',
       dropOffAdress: ''
     };
 
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
@@ -22,19 +24,36 @@ export class App extends Component {
     });
   }
 
-  render() { 
+  handleSubmit(event) {
+    const responseApi = fetch('https://stuart-­frontend-­challenge.now.sh/geocode', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        address: this.state.pickUpAdress
+      })
+    });
+    console.log('api',responseApi)
+    event.preventDefault();
+  }
+
+
+  render() {
+    console.log(this.state.data)
     const pickUpAdress = this.state.pickUpAdress;
     const dropOffAdress = this.state.dropOffAdress;
 
-  return (
-    <div className="App">
-      <header className="App-header">
-        <AddressForm onChange={this.handleInputChange} pickUpAdress={pickUpAdress} dropOffAdress={dropOffAdress}/>
-        <MapContainer />
-      </header>
+    return (
+      <div className="App">
+        <header className="App-header">
+          <AddressForm onChange={this.handleInputChange} onBlur={this.handleSubmit} pickUpAdress={pickUpAdress} dropOffAdress={dropOffAdress} />
+          <MapContainer />
+        </header>
 
-    </div>
-  );
+      </div>
+    );
   }
 }
 
