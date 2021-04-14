@@ -9,6 +9,9 @@ export class App extends Component {
     super(props);
     this.state = {
       address: '',
+      latitude:'',
+      longitude:'',
+      isValidAddress:'',
       pickUpAdress: '',
       dropOffAdress: ''
     };
@@ -35,13 +38,13 @@ export class App extends Component {
         address: this.state.pickUpAdress
       })
     });
-    console.log('api',responseApi)
+    console.log(responseApi)
     event.preventDefault();
   }
 
 
   render() {
-    console.log(this.state.data)
+    console.log('latitude', this.state.latitude)
     const pickUpAdress = this.state.pickUpAdress;
     const dropOffAdress = this.state.dropOffAdress;
 
