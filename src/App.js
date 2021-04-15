@@ -8,12 +8,16 @@ export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      pickUpAdress:'',
+      pickUpAddress:'',
+      dropOffAddress:'',
+
+      geocodedPickUpAddress:'',
       pickUpLatitude: '',
       pickUpLongitude:'',
-      dropOffAddress: '',
+
+      geocodedDropOffAddress: '',
       dropOffLatitude: '',
-      dropOffLongitude: '',
+      dropOffLongitude: ''
     };
 
     this.handleGeocodeAddress = this.handleGeocodeAddress.bind(this);
@@ -21,10 +25,8 @@ export class App extends Component {
   }
 
   handleInputChange(event) {
-    console.log('value', event.target.value)
     this.setState({
       [event.target.name]: event.target.value,
-      fieldIsNotEmpty: true,
     });
   }
 
@@ -44,32 +46,37 @@ export class App extends Component {
       .then(response => response.json())
       .then(data => {
         field.name === 'pickUpAdress' ? this.setState({
-          pickUpAdress: data.address,
+          geocodedPickUpAddress: data.address,
           pickUpLatitude: data.latitude,
           pickUpLongitude: data.longitude
         }) : this.setState({
-          dropOffAddress: data.address,
+          geocodedDropOffAddress: data.address,
           dropOffLatitude: data.latitude,
           dropOffLongitude: data.longitude
         }); })
-
-    
+    console.log('response', responseApi)
     event.preventDefault();
   }
 
 
   render() {
-    const pickUpAdress = this.state.pickUpAdress;
-    const dropOffAdress = this.state.dropOffAdress;
+    console.log('prueba', this.state.geocodedPickUpAddress)
+    const pickUpAddress = this.state.pickUpAddress;
+    const dropOffAddress = this.state.dropOffAddress;
+    const geocodedPickUpAddress = this.state.geocodedPickUpAddress;
+    const geocodedDropOffAddress = this.state.geocodedDropOffAddress;
+
 
     return (
       <div className="App">
         <header className="App-header">
-          <AddressForm 
+          <AddressForm    
           onChange={this.handleInputChange} 
           onBlur={this.handleGeocodeAddress} 
-          pickUpAdress={pickUpAdress} 
-          dropOffAdress={dropOffAdress} 
+          pickUpAddress={pickUpAddress}
+          dropOffAddress={dropOffAddress} 
+          geocodedPickUpAddress={'29 Rue du 4 Septembre'}
+          geocodedDropOffAddress={geocodedDropOffAddress}
           />
 
           <MapContainer />

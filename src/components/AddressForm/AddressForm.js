@@ -4,24 +4,40 @@ import pickUpImageBlank from '../../../src/images/pickUpBadgeBlank.svg';
 import dropOffImageBlank from '../../../src/images/dropOffBadgeBlack.svg';
 import pickUpImageValid from '../../../src/images/pickUpBadgePresent.svg';
 import dropOffImageValid from '../../../src/images/dropOffBadgePresent.svg';
+import pickUpImageError from '../../../src/images/pickUpBadgeError.svg';
+import dropOffImageError from '../../../src/images/dropOffBadgeError.svg';
 
 
 
 class AddressForm extends Component {
 
     render() {
-        const { onChange, onBlur, pickUpAdress, dropOffAdress } = this.props;
+        const { onChange, onBlur, pickUpAddress, dropOffAddress, geocodedPickUpAddress, geocodedDropOffAddress, hola } = this.props;
+        // console.log('pick', pickUpAddress);
+        // console.log('geo', geocodedPickUpAddress);
         return (
             <div className="form-container">
                 <form>
                     <div>
-                        <img className="form-image"
-                        src={pickUpImageBlank} alt="blank"/> 
+                        {pickUpAddress === geocodedPickUpAddress && pickUpAddress !== ''
+                        ?
+                            <img className="form-image"
+                            src={pickUpImageValid} alt="blank" /> 
+
+                            : pickUpAddress !== geocodedPickUpAddress && pickUpAddress !== '' ?
+                            <img className="form-image"
+                            src={pickUpImageError} alt="blank" /> 
+
+                            : 
+                            <img className="form-image"
+                            src={pickUpImageBlank} alt="blank" /> 
+                          }
                         
+
                         <input className="input-address"
-                            name='pickUpAdress'
+                            name='pickUpAddress'
                             placeholder='Pick up address'
-                            value={pickUpAdress}
+                            value={pickUpAddress}
                             onChange={onChange} 
                             onBlur={onBlur}/>
                     </div>
@@ -29,14 +45,24 @@ class AddressForm extends Component {
                     <br />
 
                     <div>
-                     
-                        <img className="form-image"
-                        src={dropOffImageBlank} alt="blank" /> 
+                        {dropOffAddress === geocodedDropOffAddress && dropOffAddress !== ''
+                            ?
+                            <img className="form-image"
+                                src={dropOffImageValid} alt="blank" />
+
+                            : dropOffAddress !== geocodedDropOffAddress && dropOffAddress !== '' ?
+                                <img className="form-image"
+                                    src={dropOffImageError} alt="blank" />
+
+                                :
+                                <img className="form-image"
+                                    src={dropOffImageBlank} alt="blank" />
+                        }
 
                         <input className="input-address"
-                            name='dropOffAdress'
+                            name='dropOffAddress'
                             placeholder='Drop off address'
-                            value={dropOffAdress}
+                            value={dropOffAddress}
                             onChange={onChange}
                             onBlur={onBlur} />
                     </div>
