@@ -22,8 +22,8 @@ export class MapContainer extends Component {
             }
             >
 
-                <Marker onClick={this.onMarkerClick}
-                    name={'Current location'} />
+            <Marker onClick={this.onMarkerClick}
+            name={'Current location'} />
             </Map>
         );
     }

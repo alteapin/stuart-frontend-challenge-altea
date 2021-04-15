@@ -31,7 +31,8 @@ class AddressForm extends Component {
                             name='dropOffAdress'
                             placeholder='Drop off address'
                             value={dropOffAdress}
-                            onChange={onChange} />
+                            onChange={onChange}
+                            onBlur={onBlur} />
                     </div>
 
                     <br />
