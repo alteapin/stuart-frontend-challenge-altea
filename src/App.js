@@ -38,7 +38,13 @@ export class App extends Component {
         address: this.state.pickUpAdress
       })
     });
-    console.log(responseApi)
+    responseApi
+      .then(response => response.json())
+      .then(data => this.setState({ 
+        address: data.address,
+        latitude: data.latitude,
+        longitude:data.longitude
+      }));
     event.preventDefault();
   }
 
