@@ -17,7 +17,10 @@ export class App extends Component {
 
       geocodedDropOffAddress: '',
       dropOffLatitude: '',
-      dropOffLongitude: ''
+      dropOffLongitude: '',
+
+      isValidPickUp: false,
+      isValidDropOff: false
     };
 
     this.handleGeocodeAddress = this.handleGeocodeAddress.bind(this);
@@ -48,11 +51,13 @@ export class App extends Component {
         field.name === 'pickUpAddress' ? this.setState({
           geocodedPickUpAddress: data.address,
           pickUpLatitude: data.latitude,
-          pickUpLongitude: data.longitude
+          pickUpLongitude: data.longitude,
+          isValidPickUp: true
         }) : this.setState({
           geocodedDropOffAddress: data.address,
           dropOffLatitude: data.latitude,
-          dropOffLongitude: data.longitude
+          dropOffLongitude: data.longitude,
+          isValidDropOff: true
         }); })
     console.log('response', responseApi)
     event.preventDefault();
@@ -68,6 +73,9 @@ export class App extends Component {
     const geocodedDropOffAddress = this.state.geocodedDropOffAddress;
     const pickUpLatitude = this.state.pickUpLatitude;
     const pickUpLongitude = this.state.pickUpLongitude;
+    const isValidPickUp = this.state.isValidPickUp;
+    const isValidDropOff = this.state.dropOffAddress;
+
 
 
 
@@ -81,6 +89,8 @@ export class App extends Component {
           dropOffAddress={dropOffAddress} 
           geocodedPickUpAddress={geocodedPickUpAddress}
           geocodedDropOffAddress={geocodedDropOffAddress}
+            isValidPickUp={isValidPickUp}
+          isValidDropOff={isValidDropOff}
           />
 
           <MapContainer 

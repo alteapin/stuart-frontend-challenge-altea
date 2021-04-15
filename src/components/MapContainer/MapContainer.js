@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
+import pickUpMarker from '../../../src/images/pickUpMarker.svg';
+import dropOfMarker from '../../../src/images/dropOffMarker.svg';
+
 
 const mapStyle = {
     position: 'relative',
@@ -32,7 +35,17 @@ export class MapContainer extends Component {
             <Marker onClick={this.onMarkerClick}
             name={'Current location'} 
             position={{ lat: pickUpLatitude, lng: pickUpLongitude}}
+                    icon={{
+                        url: pickUpMarker      
+                    }}
             />
+                <Marker onClick={this.onMarkerClick}
+                    name={'Current location'}
+                    position={{ lat: pickUpLatitude, lng: pickUpLongitude }}
+                    icon={{
+                        url: dropOfMarker
+                    }}
+                />
             </Map>
         );
     }
