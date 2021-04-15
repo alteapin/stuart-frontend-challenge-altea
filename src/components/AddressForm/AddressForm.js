@@ -12,7 +12,7 @@ import dropOffImageError from '../../../src/images/dropOffBadgeError.svg';
 class AddressForm extends Component {
 
     render() {
-        const { onChange, onBlur, pickUpAddress, dropOffAddress, geocodedPickUpAddress, geocodedDropOffAddress, isValidPickUp, isValidDropOff } = this.props;
+        const { onChange, onBlur, onClick, pickUpAddress, dropOffAddress, geocodedPickUpAddress, geocodedDropOffAddress, isValidPickUp, isValidDropOff } = this.props;
         return (
             <div className="form-container">
                 <form>
@@ -66,7 +66,11 @@ class AddressForm extends Component {
                     </div>
 
                     <br />
-                    <button className="button-form" disabled={!(isValidPickUp && isValidDropOff)}>Create a job</button>
+                    <button 
+                    className="button-form" 
+                    disabled={!(isValidPickUp && isValidDropOff)}
+                    onClick={onClick}
+                    >Create a job</button>
                 </form>
             </div>
         )

@@ -24,6 +24,7 @@ export class App extends Component {
     };
 
     this.handleGeocodeAddress = this.handleGeocodeAddress.bind(this);
+    this.handleCreateJob = this.handleCreateJob.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
@@ -59,14 +60,29 @@ export class App extends Component {
           dropOffLongitude: data.longitude,
           isValidDropOff: true
         }); })
+
+    event.preventDefault();
+  }
+
+  handleCreateJob(event) {
+    const pickUpAddress = this.state.pickUpAddress
+    const dropOffAddress = this.state.dropOffAddress
+    const responseApi = fetch('https://stuart-­frontend-­challenge.now.sh/jobs', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        pickup: pickUpAddress,
+        dropoff: dropOffAddress
+      })
+    });
     console.log('response', responseApi)
     event.preventDefault();
   }
 
-
   render() {
-    console.log('latitude', this.state.pickUpLatitude)
-    console.log('prueba', this.state.geocodedPickUpAddress)
     const pickUpAddress = this.state.pickUpAddress;
     const dropOffAddress = this.state.dropOffAddress;
     const geocodedPickUpAddress = this.state.geocodedPickUpAddress;
@@ -86,7 +102,8 @@ export class App extends Component {
         <header className="App-header">
           <AddressForm    
           onChange={this.handleInputChange} 
-          onBlur={this.handleGeocodeAddress} 
+          onBlur={this.handleGeocodeAddress}
+          onClick={this.handleCreateJob} 
           pickUpAddress={pickUpAddress}
           dropOffAddress={dropOffAddress} 
           geocodedPickUpAddress={geocodedPickUpAddress}
