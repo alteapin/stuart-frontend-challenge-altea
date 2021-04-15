@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AddressForm from './components/AddressForm/AddressForm';
 import MapContainer from './components/MapContainer/MapContainer';
+import Toast from './components/Toast/Toast';
 
 import './App.scss';
 
@@ -20,7 +21,9 @@ export class App extends Component {
       dropOffLongitude: '',
 
       isValidPickUp: false,
-      isValidDropOff: false
+      isValidDropOff: false,
+
+      requestCompleted: false
     };
 
     this.handleGeocodeAddress = this.handleGeocodeAddress.bind(this);
@@ -78,11 +81,20 @@ export class App extends Component {
         dropoff: dropOffAddress
       })
     });
+
+    responseApi
+      .then(response => response.json())
+      .then(this.setState({
+        requestCompleted: true
+        }) 
+      )
+
     console.log('response', responseApi)
     event.preventDefault();
   }
 
   render() {
+
     const pickUpAddress = this.state.pickUpAddress;
     const dropOffAddress = this.state.dropOffAddress;
     const geocodedPickUpAddress = this.state.geocodedPickUpAddress;
@@ -93,6 +105,7 @@ export class App extends Component {
     const dropOffLongitude = this.state.dropOffLongitude
     const isValidPickUp = this.state.isValidPickUp;
     const isValidDropOff = this.state.dropOffAddress;
+    const requestCompleted = this.state.requestCompleted
 
 
 
@@ -111,13 +124,15 @@ export class App extends Component {
           isValidPickUp={isValidPickUp}
           isValidDropOff={isValidDropOff}
           />
-
-          <MapContainer 
+          <MapContainer
             pickUpLatitude={pickUpLatitude}
             pickUpLongitude={pickUpLongitude}
             dropOffLatitude={dropOffLatitude}
             dropOffLongitude={dropOffLongitude}
-          />
+          /> 
+          {requestCompleted ?
+          <Toast />
+          : null }
         </header>
 
       </div>
