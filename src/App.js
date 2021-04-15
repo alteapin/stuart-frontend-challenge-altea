@@ -45,7 +45,7 @@ export class App extends Component {
     responseApi
       .then(response => response.json())
       .then(data => {
-        field.name === 'pickUpAdress' ? this.setState({
+        field.name === 'pickUpAddress' ? this.setState({
           geocodedPickUpAddress: data.address,
           pickUpLatitude: data.latitude,
           pickUpLongitude: data.longitude
@@ -60,6 +60,7 @@ export class App extends Component {
 
 
   render() {
+    console.log('latitude', this.state.pickUpLatitude)
     console.log('prueba', this.state.geocodedPickUpAddress)
     const pickUpAddress = this.state.pickUpAddress;
     const dropOffAddress = this.state.dropOffAddress;
@@ -75,7 +76,7 @@ export class App extends Component {
           onBlur={this.handleGeocodeAddress} 
           pickUpAddress={pickUpAddress}
           dropOffAddress={dropOffAddress} 
-          geocodedPickUpAddress={'29 Rue du 4 Septembre'}
+            geocodedPickUpAddress={geocodedPickUpAddress}
           geocodedDropOffAddress={geocodedDropOffAddress}
           />
 
