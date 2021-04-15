@@ -8,12 +8,12 @@ export class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      address: '',
-      latitude:'',
-      longitude:'',
-      isValidAddress:'',
-      pickUpAdress: '',
-      dropOffAdress: ''
+      pickUpAdress:'',
+      pickUpLatitude: '',
+      pickUpLongitude:'',
+      dropOffAddress: '',
+      dropOffLatitude: '',
+      dropOffLongitude: '',
     };
 
     this.handleGeocodeAddress = this.handleGeocodeAddress.bind(this);
@@ -23,11 +23,13 @@ export class App extends Component {
   handleInputChange(event) {
     console.log('value', event.target.value)
     this.setState({
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
+      fieldIsNotEmpty: true,
     });
   }
 
   handleGeocodeAddress(event) {
+    const field = event.target;
     const responseApi = fetch('https://stuart-­frontend-­challenge.now.sh/geocode', {
       method: 'POST',
       headers: {
@@ -35,29 +37,41 @@ export class App extends Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        address: event.target.value
+        address: field.value
       })
     });
     responseApi
       .then(response => response.json())
-      .then(data => this.setState({ 
-        address: data.address,
-        latitude: data.latitude,
-        longitude:data.longitude
-      }));
+      .then(data => {
+        field.name === 'pickUpAdress' ? this.setState({
+          pickUpAdress: data.address,
+          pickUpLatitude: data.latitude,
+          pickUpLongitude: data.longitude
+        }) : this.setState({
+          dropOffAddress: data.address,
+          dropOffLatitude: data.latitude,
+          dropOffLongitude: data.longitude
+        }); })
+
+    
     event.preventDefault();
   }
 
 
   render() {
-    console.log('latitude', this.state.address)
     const pickUpAdress = this.state.pickUpAdress;
     const dropOffAdress = this.state.dropOffAdress;
 
     return (
       <div className="App">
         <header className="App-header">
-          <AddressForm onChange={this.handleInputChange} onBlur={this.handleGeocodeAddress} pickUpAdress={pickUpAdress} dropOffAdress={dropOffAdress} />
+          <AddressForm 
+          onChange={this.handleInputChange} 
+          onBlur={this.handleGeocodeAddress} 
+          pickUpAdress={pickUpAdress} 
+          dropOffAdress={dropOffAdress} 
+          />
+
           <MapContainer />
         </header>
 

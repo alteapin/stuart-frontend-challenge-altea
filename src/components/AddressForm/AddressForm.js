@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './AddressForm.scss';
 import pickUpImageBlank from '../../../src/images/pickUpBadgeBlank.svg';
 import dropOffImageBlank from '../../../src/images/dropOffBadgeBlack.svg';
+import pickUpImageValid from '../../../src/images/pickUpBadgePresent.svg';
+import dropOffImageValid from '../../../src/images/dropOffBadgePresent.svg';
+
 
 
 class AddressForm extends Component {
@@ -13,7 +16,8 @@ class AddressForm extends Component {
                 <form>
                     <div>
                         <img className="form-image"
-                            src={pickUpImageBlank} alt="x" />
+                        src={pickUpImageBlank} alt="blank"/> 
+                        
                         <input className="input-address"
                             name='pickUpAdress'
                             placeholder='Pick up address'
@@ -25,8 +29,10 @@ class AddressForm extends Component {
                     <br />
 
                     <div>
+                     
                         <img className="form-image"
-                            src={dropOffImageBlank} alt="x" />
+                        src={dropOffImageBlank} alt="blank" /> 
+
                         <input className="input-address"
                             name='dropOffAdress'
                             placeholder='Drop off address'
