@@ -12,9 +12,7 @@ import dropOffImageError from '../../../src/images/dropOffBadgeError.svg';
 class AddressForm extends Component {
 
     render() {
-        const { onChange, onBlur, pickUpAddress, dropOffAddress, geocodedPickUpAddress, geocodedDropOffAddress, hola } = this.props;
-        // console.log('pick', pickUpAddress);
-        // console.log('geo', geocodedPickUpAddress);
+        const { onChange, onBlur, pickUpAddress, dropOffAddress, geocodedPickUpAddress, geocodedDropOffAddress } = this.props;
         return (
             <div className="form-container">
                 <form>

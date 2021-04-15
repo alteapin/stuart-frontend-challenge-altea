@@ -66,6 +66,9 @@ export class App extends Component {
     const dropOffAddress = this.state.dropOffAddress;
     const geocodedPickUpAddress = this.state.geocodedPickUpAddress;
     const geocodedDropOffAddress = this.state.geocodedDropOffAddress;
+    const pickUpLatitude = this.state.pickUpLatitude;
+    const pickUpLongitude = this.state.pickUpLongitude;
+
 
 
     return (
@@ -76,11 +79,14 @@ export class App extends Component {
           onBlur={this.handleGeocodeAddress} 
           pickUpAddress={pickUpAddress}
           dropOffAddress={dropOffAddress} 
-            geocodedPickUpAddress={geocodedPickUpAddress}
+          geocodedPickUpAddress={geocodedPickUpAddress}
           geocodedDropOffAddress={geocodedDropOffAddress}
           />
 
-          <MapContainer />
+          <MapContainer 
+            pickUpLatitude={pickUpLatitude}
+            pickUpLongitude={pickUpLongitude}
+          />
         </header>
 
       </div>
