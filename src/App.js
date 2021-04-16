@@ -21,12 +21,14 @@ export class App extends Component {
       isValidPickUp: false,
       isValidDropOff: false,
 
-      requestCompleted: false
+      requestCompleted: false,
+      showToast: false
     };
 
     this.handleGeocodeAddress = this.handleGeocodeAddress.bind(this);
     this.handleCreateJob = this.handleCreateJob.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.showToastWhenJobCreated = this.showToastWhenJobCreated.bind(this);
   }
 
   handleInputChange(event) {
@@ -102,6 +104,11 @@ export class App extends Component {
     event.preventDefault();
   }
 
+  showToastWhenJobCreated() {
+    this.setState({ showToast: true });
+  }
+
+
   render() {
 
     const pickUpAddress = this.state.pickUpAddress;
@@ -113,6 +120,7 @@ export class App extends Component {
     const isValidPickUp = this.state.isValidPickUp;
     const isValidDropOff = this.state.isValidDropOff;
     const requestCompleted = this.state.requestCompleted;
+    const showToast = this.state.showToast;
 
     return (
       <div className="App">
@@ -134,7 +142,9 @@ export class App extends Component {
           /> 
           {requestCompleted ?
           <Toast 
-              isOpen={requestCompleted}/>
+              onClick={this.showToastWhenJobCreated}
+              showToast={showToast}
+          />
           : null }
         </header>
 
