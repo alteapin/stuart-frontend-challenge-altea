@@ -14,21 +14,16 @@ class AddressForm extends Component {
     render() {
         const { onChange, onBlur, onClick, pickUpAddress, dropOffAddress, isValidPickUp, isValidDropOff } = this.props;
         const addNewClass = (isValidPickUp && isValidDropOff) ? 'button-form' : 'button-form disabled';
+        const pickUpChangeIcon = (isValidPickUp && !(pickUpAddress === '') ? pickUpImageValid : !isValidPickUp && !(pickUpAddress === '') ? pickUpImageError : pickUpImageBlank)
+        const dropOffChangeIcon = (isValidDropOff && !(dropOffAddress === '') ? dropOffImageValid : !isValidDropOff && !(dropOffAddress === '') ? dropOffImageError : dropOffImageBlank)
+
 
         return (
             <div className="form-container">
                 <form>
                     <div>
-                        {isValidPickUp && !(pickUpAddress === '') ?
-                            <img className="form-image"
-                            src={pickUpImageValid} alt="blank" /> 
-                            : !isValidPickUp && !(pickUpAddress === '') ?
-                            <img className="form-image"
-                            src={pickUpImageError} alt="blank" /> : 
-                            <img className="form-image"
-                            src={pickUpImageBlank} alt="blank" /> 
-                          }
-                        
+                        <img className="form-image"
+                         src={pickUpChangeIcon} alt="blank" /> 
 
                         <input className="input-address"
                             name='pickUpAddress'
@@ -41,15 +36,8 @@ class AddressForm extends Component {
                     <br />
 
                     <div>
-                        {isValidDropOff && dropOffAddress !== '' ?
-                            <img className="form-image"
-                                src={dropOffImageValid} alt="blank" />
-                            : !isValidDropOff && dropOffAddress !== '' ?
-                            <img className="form-image"
-                                src={dropOffImageError} alt="blank" /> :
-                            <img className="form-image"
-                                src={dropOffImageBlank} alt="blank" />
-                        }
+                        <img className="form-image"
+                            src={dropOffChangeIcon} alt="blank" /> 
 
                         <input className="input-address"
                             name='dropOffAddress'
