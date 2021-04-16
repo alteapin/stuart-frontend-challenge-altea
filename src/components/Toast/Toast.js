@@ -13,16 +13,20 @@ class ToastContainer extends Component {
     }
 
     handlejobCreateds() {
-        this.setState({ showToast: !this.state.showToast});
+        this.setState({ showToast: true});
+        setTimeout(() => this.setState({ showToast: false }), 5000);
     }
 
     render() {
-
+        const showToast = this.state.showToast
         return (
             <div >
                 <form onSubmit={this.handlesubmit}>
-                    <input className="toast" type="submit" value="Job has been created successfully!" onClick={this.handlejobCreated} />                    
-                    {this.state.show ? <span></span> : null}
+                    <input className="toast" 
+                    type="submit" 
+                    value="Job has been created successfully!" 
+                    onClick={this.handlejobCreated} />                    
+                    {showToast ? <span></span> : null}
                 </form> 
             </div>
         );

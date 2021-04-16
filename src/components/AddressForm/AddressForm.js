@@ -13,6 +13,7 @@ class AddressForm extends Component {
 
     render() {
         const { onChange, onBlur, onClick, pickUpAddress, dropOffAddress, geocodedPickUpAddress, geocodedDropOffAddress, isValidPickUp, isValidDropOff } = this.props;
+        const addNewClass = (isValidPickUp && isValidDropOff) ? 'button-form' : 'button-form disabled';
         return (
             <div className="form-container">
                 <form>
@@ -67,7 +68,7 @@ class AddressForm extends Component {
 
                     <br />
                     <button 
-                    className="button-form" 
+                    className={addNewClass} 
                     disabled={!(isValidPickUp && isValidDropOff)}
                     onClick={onClick}
                     >Create a job</button>
