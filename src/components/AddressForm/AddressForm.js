@@ -10,12 +10,9 @@ import dropOffImageError from '../../../src/images/dropOffBadgeError.svg';
 
 
 class AddressForm extends Component {
-
     render() {
         const { onChange, onKeyUp, onClick, pickUpAddress, dropOffAddress, isValidPickUp, isValidDropOff } = this.props;
         const addNewClass = (isValidPickUp && isValidDropOff) ? 'button-form' : 'button-form disabled';
-        
-        
         const pickUpChangeIcon = 
         (isValidPickUp && !(pickUpAddress === '') ? pickUpImageValid 
         : !isValidPickUp && !(pickUpAddress === '') ? pickUpImageError 
@@ -30,7 +27,7 @@ class AddressForm extends Component {
                 <form>
                     <div>
                         <img className="form-image"
-                         src={pickUpChangeIcon} alt="blank" /> 
+                         src={pickUpChangeIcon} alt="icon" /> 
 
                         <input className="input-address"
                             name='pickUpAddress'
@@ -44,7 +41,7 @@ class AddressForm extends Component {
 
                     <div>
                         <img className="form-image"
-                            src={dropOffChangeIcon} alt="blank" /> 
+                            src={dropOffChangeIcon} alt="icon" /> 
 
                         <input className="input-address"
                             name='dropOffAddress'

@@ -5,7 +5,7 @@ class ToastContainer extends Component {
     render() {
         const { onClick, showToast, hideToast } = this.props
         return (
-            <div >
+            <div>
                 {!hideToast ? 
                 <form onSubmit={this.handlesubmit}>
                     <input className="toast"
@@ -15,7 +15,6 @@ class ToastContainer extends Component {
                     {showToast ? <span></span> : null}
                 </form>  
                 : null}
-             
             </div>
         );
     }

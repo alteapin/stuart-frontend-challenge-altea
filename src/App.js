@@ -40,6 +40,7 @@ export class App extends Component {
     });
   }
 
+  
   handleGeocodeAddress(event) {
     const field = event.target;
     const responseApi = fetch(`${BASEURL}/geocode`, {
@@ -105,10 +106,11 @@ export class App extends Component {
         dropOffAddress:''
         }) 
       )
-    setTimeout(() => this.setState({ hideToast: true }), 5000);
 
+    setTimeout(() => this.setState({ hideToast: true }), 5000);
     event.preventDefault();
   }
+
 
   showToastWhenJobCreated() {
     this.setState({ 
