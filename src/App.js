@@ -118,7 +118,7 @@ export class App extends Component {
     const dropOffLatitude = this.state.dropOffLatitude;
     const dropOffLongitude = this.state.dropOffLongitude
     const isValidPickUp = this.state.isValidPickUp;
-    const isValidDropOff = this.state.dropOffAddress;
+    const isValidDropOff = this.state.isValidDropOff;
     const requestCompleted = this.state.requestCompleted;
 
     return (
