@@ -12,7 +12,7 @@ import dropOffImageError from '../../../src/images/dropOffBadgeError.svg';
 class AddressForm extends Component {
     render() {
         const { onChange, onKeyUp, onClick, pickUpAddress, dropOffAddress, isValidPickUp, isValidDropOff } = this.props;
-        const addNewClass = (isValidPickUp && isValidDropOff) ? 'button-form' : 'button-form disabled';
+        const togleDisabledButton = (isValidPickUp && isValidDropOff) ? 'form__button' : 'form__button disabled';
         const pickUpChangeIcon = 
         (isValidPickUp && !(pickUpAddress === '') ? pickUpImageValid 
         : !isValidPickUp && !(pickUpAddress === '') ? pickUpImageError 
@@ -23,13 +23,13 @@ class AddressForm extends Component {
         : dropOffImageBlank);
 
         return (
-            <div className="form-container">
+            <div className="form__container">
                 <form>
                     <div>
-                        <img className="form-image"
+                        <img className="form__icon"
                          src={pickUpChangeIcon} alt="icon" /> 
 
-                        <input className="input-address"
+                        <input className="form__input--address"
                             name='pickUpAddress'
                             placeholder='Pick up address'
                             value={pickUpAddress}
@@ -40,10 +40,10 @@ class AddressForm extends Component {
                     <br />
 
                     <div>
-                        <img className="form-image"
+                        <img className="form__icon"
                             src={dropOffChangeIcon} alt="icon" /> 
 
-                        <input className="input-address"
+                        <input className="form__input--address"
                             name='dropOffAddress'
                             placeholder='Drop off address'
                             value={dropOffAddress}
@@ -53,7 +53,7 @@ class AddressForm extends Component {
 
                     <br />
                     <button 
-                    className={addNewClass} 
+                    className={togleDisabledButton} 
                     disabled={!(isValidPickUp && isValidDropOff)}
                     onClick={onClick}
                     >Create a job</button>

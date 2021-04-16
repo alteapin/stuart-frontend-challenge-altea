@@ -1,4 +1,4 @@
-.form-container {
+.form__container {
     position: absolute;
     top: 40px;
     left: 40px;
@@ -11,7 +11,7 @@
     background-color: #ffffff;
 }
 
-.input-address {
+.form__input--address {
     border-radius: 8px;
     height: 32px;
     width: 192px;
@@ -24,18 +24,18 @@
     padding: 0 12px;
 }
 
-.input-address:focus {
+.form__input--address:focus {
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     color: #252525;
 }
 
-.form-image{
+.form__icon {
     margin-left: 8px;
     margin-bottom: -10px;
 }
 
-.button-form{
+.form__button {
     border-radius: 4px;
     height: 40px;
     width: 192px;
