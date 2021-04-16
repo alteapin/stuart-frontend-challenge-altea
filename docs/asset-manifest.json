@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "./static/css/main.9d98f223.chunk.css",
+    "main.js": "./static/js/main.8f0b61fe.chunk.js",
+    "main.js.map": "./static/js/main.8f0b61fe.chunk.js.map",
+    "runtime-main.js": "./static/js/runtime-main.880774c4.js",
+    "runtime-main.js.map": "./static/js/runtime-main.880774c4.js.map",
+    "static/js/2.4a62227e.chunk.js": "./static/js/2.4a62227e.chunk.js",
+    "static/js/2.4a62227e.chunk.js.map": "./static/js/2.4a62227e.chunk.js.map",
+    "static/js/3.b29434fb.chunk.js": "./static/js/3.b29434fb.chunk.js",
+    "static/js/3.b29434fb.chunk.js.map": "./static/js/3.b29434fb.chunk.js.map",
+    "index.html": "./index.html",
+    "static/css/main.9d98f223.chunk.css.map": "./static/css/main.9d98f223.chunk.css.map",
+    "static/js/2.4a62227e.chunk.js.LICENSE.txt": "./static/js/2.4a62227e.chunk.js.LICENSE.txt",
+    "static/media/dropOffBadgeBlack.a0d51e15.svg": "./static/media/dropOffBadgeBlack.a0d51e15.svg",
+    "static/media/dropOffBadgeError.5030f42d.svg": "./static/media/dropOffBadgeError.5030f42d.svg",
+    "static/media/dropOffBadgePresent.e122e9da.svg": "./static/media/dropOffBadgePresent.e122e9da.svg",
+    "static/media/dropOffMarker.76797aa2.svg": "./static/media/dropOffMarker.76797aa2.svg",
+    "static/media/pickUpBadgeBlank.ed2c68fd.svg": "./static/media/pickUpBadgeBlank.ed2c68fd.svg",
+    "static/media/pickUpBadgeError.17f2d872.svg": "./static/media/pickUpBadgeError.17f2d872.svg",
+    "static/media/pickUpBadgePresent.9ffca82d.svg": "./static/media/pickUpBadgePresent.9ffca82d.svg",
+    "static/media/pickUpMarker.5647c56d.svg": "./static/media/pickUpMarker.5647c56d.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.880774c4.js",
+    "static/js/2.4a62227e.chunk.js",
+    "static/css/main.9d98f223.chunk.css",
+    "static/js/main.8f0b61fe.chunk.js"
+  ]
+}
