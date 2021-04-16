@@ -79,6 +79,7 @@ export class App extends Component {
     event.preventDefault();
   }
 
+
   handleCreateJob(event) {
     const pickUpAddress = this.state.pickUpAddress
     const dropOffAddress = this.state.dropOffAddress
@@ -97,7 +98,9 @@ export class App extends Component {
     responseApi
       .then(response => response.json())
       .then(this.setState({
-        requestCompleted: true
+        requestCompleted: true,
+        pickUpAddress:'',
+        dropOffAddress:''
         }) 
       )
 
@@ -105,7 +108,9 @@ export class App extends Component {
   }
 
   showToastWhenJobCreated() {
-    this.setState({ showToast: true });
+    this.setState({ 
+      showToast: true,
+     });
   }
 
 

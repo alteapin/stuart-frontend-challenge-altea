@@ -14,9 +14,14 @@ class AddressForm extends Component {
     render() {
         const { onChange, onBlur, onClick, pickUpAddress, dropOffAddress, isValidPickUp, isValidDropOff } = this.props;
         const addNewClass = (isValidPickUp && isValidDropOff) ? 'button-form' : 'button-form disabled';
-        const pickUpChangeIcon = (isValidPickUp && !(pickUpAddress === '') ? pickUpImageValid : !isValidPickUp && !(pickUpAddress === '') ? pickUpImageError : pickUpImageBlank)
-        const dropOffChangeIcon = (isValidDropOff && !(dropOffAddress === '') ? dropOffImageValid : !isValidDropOff && !(dropOffAddress === '') ? dropOffImageError : dropOffImageBlank)
-
+        const pickUpChangeIcon = 
+        (isValidPickUp && !(pickUpAddress === '') ? pickUpImageValid 
+        : !isValidPickUp && !(pickUpAddress === '') ? pickUpImageError 
+        : pickUpImageBlank);
+        const dropOffChangeIcon = 
+        (isValidDropOff && !(dropOffAddress === '') ? dropOffImageValid 
+        : !isValidDropOff && !(dropOffAddress === '') ? dropOffImageError 
+        : dropOffImageBlank);
 
         return (
             <div className="form-container">
