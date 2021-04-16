@@ -22,7 +22,8 @@ export class App extends Component {
       isValidDropOff: false,
 
       requestCompleted: false,
-      showToast: false
+      showToast: false,
+      hideToast: false
     };
 
     this.handleGeocodeAddress = this.handleGeocodeAddress.bind(this);
@@ -103,6 +104,7 @@ export class App extends Component {
         dropOffAddress:''
         }) 
       )
+    setTimeout(() => this.setState({ hideToast: true }), 5000);
 
     event.preventDefault();
   }
@@ -126,6 +128,8 @@ export class App extends Component {
     const isValidDropOff = this.state.isValidDropOff;
     const requestCompleted = this.state.requestCompleted;
     const showToast = this.state.showToast;
+    const hideToast = this.state.hideToast;
+
 
     return (
       <div className="App">
@@ -149,6 +153,7 @@ export class App extends Component {
           <Toast 
               onClick={this.showToastWhenJobCreated}
               showToast={showToast}
+              hideToast={hideToast}
           />
           : null }
         </header>
