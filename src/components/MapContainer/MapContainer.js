@@ -12,7 +12,10 @@ const mapStyle = {
 
 export class MapContainer extends Component {
     render() {
-        const { pickUpLatitude, pickUpLongitude, dropOffLatitude, dropOffLongitude, pickUpAddress, dropOffAddress } = this.props;
+        const 
+        { pickUpLatitude, pickUpLongitude, dropOffLatitude, dropOffLongitude, pickUpAddress, dropOffAddress } 
+        = this.props;
+        
         return (
             <Map 
             google={this.props.google} 
@@ -31,6 +34,7 @@ export class MapContainer extends Component {
                 }
             }
             >
+                
             {pickUpAddress  ?                
                 <Marker onClick={this.onMarkerClick}
                     name={'Current location'}
@@ -45,7 +49,7 @@ export class MapContainer extends Component {
                     position={{ lat: dropOffLatitude, lng: dropOffLongitude }}
                     icon={{ url: dropOfMarker }}
                 /> 
-                : null}
+            : null}
 
             </Map>
         );

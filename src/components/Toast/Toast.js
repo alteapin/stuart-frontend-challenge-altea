@@ -4,6 +4,7 @@ import './Toast.scss';
 class ToastContainer extends Component {
     render() {
         const { onClick, showToast, hideToast } = this.props
+        
         return (
             <div>
                 {!hideToast ? 
