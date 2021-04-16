@@ -151,6 +151,8 @@ export class App extends Component {
             pickUpLongitude={pickUpLongitude}
             dropOffLatitude={dropOffLatitude}
             dropOffLongitude={dropOffLongitude}
+            pickUpAddress={pickUpAddress}
+            dropOffAddress={dropOffAddress}
           /> 
           {requestCompleted ?
           <Toast 
