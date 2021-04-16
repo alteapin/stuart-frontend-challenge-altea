@@ -12,23 +12,19 @@ import dropOffImageError from '../../../src/images/dropOffBadgeError.svg';
 class AddressForm extends Component {
 
     render() {
-        const { onChange, onBlur, onClick, pickUpAddress, dropOffAddress, geocodedPickUpAddress, geocodedDropOffAddress, isValidPickUp, isValidDropOff } = this.props;
+        const { onChange, onBlur, onClick, pickUpAddress, dropOffAddress, isValidPickUp, isValidDropOff } = this.props;
         const addNewClass = (isValidPickUp && isValidDropOff) ? 'button-form' : 'button-form disabled';
-        console.log('pick', isValidPickUp);
-        console.log('drop', isValidDropOff);
+
         return (
             <div className="form-container">
                 <form>
                     <div>
-                        {pickUpAddress === geocodedPickUpAddress && !(pickUpAddress === '') ?
+                        {isValidPickUp && !(pickUpAddress === '') ?
                             <img className="form-image"
                             src={pickUpImageValid} alt="blank" /> 
-
-                            : !(pickUpAddress === geocodedPickUpAddress) && !(pickUpAddress === '') ?
+                            : !isValidPickUp && !(pickUpAddress === '') ?
                             <img className="form-image"
-                            src={pickUpImageError} alt="blank" /> 
-
-                            : 
+                            src={pickUpImageError} alt="blank" /> : 
                             <img className="form-image"
                             src={pickUpImageBlank} alt="blank" /> 
                           }
@@ -45,18 +41,14 @@ class AddressForm extends Component {
                     <br />
 
                     <div>
-                        {dropOffAddress === geocodedDropOffAddress && dropOffAddress !== ''
-                            ?
+                        {isValidDropOff && dropOffAddress !== '' ?
                             <img className="form-image"
                                 src={dropOffImageValid} alt="blank" />
-
-                            : dropOffAddress !== geocodedDropOffAddress && dropOffAddress !== '' ?
-                                <img className="form-image"
-                                    src={dropOffImageError} alt="blank" />
-
-                                :
-                                <img className="form-image"
-                                    src={dropOffImageBlank} alt="blank" />
+                            : !isValidDropOff && dropOffAddress !== '' ?
+                            <img className="form-image"
+                                src={dropOffImageError} alt="blank" /> :
+                            <img className="form-image"
+                                src={dropOffImageBlank} alt="blank" />
                         }
 
                         <input className="input-address"

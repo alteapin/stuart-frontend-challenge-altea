@@ -12,11 +12,9 @@ export class App extends Component {
       pickUpAddress:'',
       dropOffAddress:'',
 
-      geocodedPickUpAddress:'',
       pickUpLatitude: '',
       pickUpLongitude:'',
 
-      geocodedDropOffAddress: '',
       dropOffLatitude: '',
       dropOffLongitude: '',
 
@@ -58,7 +56,6 @@ export class App extends Component {
               }) 
         : field.name === 'pickUpAddress' && data.code !== 'GEOCODE_ERROR' ? 
               this.setState({
-                geocodedPickUpAddress: data.address,
                 pickUpLatitude: data.latitude,
                 pickUpLongitude: data.longitude,
                 isValidPickUp: true
@@ -69,7 +66,6 @@ export class App extends Component {
               }) 
         : field.name === 'dropOffAddress' && data.code !== 'GEOCODE_ERROR' ? 
               this.setState({
-                geocodedDropOffAddress: data.address,
                 dropOffLatitude: data.latitude,
                 dropOffLongitude: data.longitude,
                 isValidDropOff: true
@@ -103,7 +99,6 @@ export class App extends Component {
         }) 
       )
 
-    console.log('response', responseApi)
     event.preventDefault();
   }
 
@@ -111,8 +106,6 @@ export class App extends Component {
 
     const pickUpAddress = this.state.pickUpAddress;
     const dropOffAddress = this.state.dropOffAddress;
-    const geocodedPickUpAddress = this.state.geocodedPickUpAddress;
-    const geocodedDropOffAddress = this.state.geocodedDropOffAddress;
     const pickUpLatitude = this.state.pickUpLatitude;
     const pickUpLongitude = this.state.pickUpLongitude;
     const dropOffLatitude = this.state.dropOffLatitude;
@@ -130,14 +123,10 @@ export class App extends Component {
           onClick={this.handleCreateJob} 
           pickUpAddress={pickUpAddress}
           dropOffAddress={dropOffAddress} 
-          geocodedPickUpAddress={geocodedPickUpAddress}
-          geocodedDropOffAddress={geocodedDropOffAddress}
           isValidPickUp={isValidPickUp}
           isValidDropOff={isValidDropOff}
           />
           <MapContainer
-            geopick={geocodedPickUpAddress}
-            geodrop={geocodedDropOffAddress}
             pickUpLatitude={pickUpLatitude}
             pickUpLongitude={pickUpLongitude}
             dropOffLatitude={dropOffLatitude}
