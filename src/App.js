@@ -5,7 +5,7 @@ import Toast from './components/Toast/Toast';
 
 import './App.scss';
 
-const BASEURL = 'https://stuart-­frontend-­challenge.now.sh'
+const BASEURL = 'https://stuart-­frontend-­challenge.now.sh';
 
 export class App extends Component {
   constructor(props) {
