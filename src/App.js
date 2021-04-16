@@ -105,10 +105,7 @@ export class App extends Component {
     const dropOffLongitude = this.state.dropOffLongitude
     const isValidPickUp = this.state.isValidPickUp;
     const isValidDropOff = this.state.dropOffAddress;
-    const requestCompleted = this.state.requestCompleted
-
-
-
+    const requestCompleted = this.state.requestCompleted;
 
     return (
       <div className="App">
@@ -125,13 +122,16 @@ export class App extends Component {
           isValidDropOff={isValidDropOff}
           />
           <MapContainer
+            geopick={geocodedPickUpAddress}
+            geodrop={geocodedDropOffAddress}
             pickUpLatitude={pickUpLatitude}
             pickUpLongitude={pickUpLongitude}
             dropOffLatitude={dropOffLatitude}
             dropOffLongitude={dropOffLongitude}
           /> 
           {requestCompleted ?
-          <Toast />
+          <Toast 
+              isOpen={requestCompleted}/>
           : null }
         </header>
 

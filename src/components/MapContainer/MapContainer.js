@@ -26,8 +26,8 @@ export class MapContainer extends Component {
             }
             initialCenter={
                 {
-                    lat: -1.2884,
-                    lng: 36.8233
+                    lat: 48.86982,
+                    lng: 2.334579
                 }
             }
             >
@@ -39,9 +39,9 @@ export class MapContainer extends Component {
                         url: pickUpMarker      
                     }}
             />
-                <Marker onClick={this.onMarkerClick}
-                    name={'Current location'}
-                    position={{ lat: dropOffLatitude, lng: dropOffLongitude }}
+            <Marker onClick={this.onMarkerClick}
+            name={'Current location'}
+            position={{ lat: dropOffLatitude, lng: dropOffLongitude }}
                     icon={{
                         url: dropOfMarker
                     }}
