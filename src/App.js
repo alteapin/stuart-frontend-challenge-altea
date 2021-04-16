@@ -5,6 +5,8 @@ import Toast from './components/Toast/Toast';
 
 import './App.scss';
 
+const BASEURL = 'https://stuart-­frontend-­challenge.now.sh'
+
 export class App extends Component {
   constructor(props) {
     super(props);
@@ -40,7 +42,7 @@ export class App extends Component {
 
   handleGeocodeAddress(event) {
     const field = event.target;
-    const responseApi = fetch('https://stuart-­frontend-­challenge.now.sh/geocode', {
+    const responseApi = fetch(`${BASEURL}/geocode`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -75,7 +77,6 @@ export class App extends Component {
                 }) 
            : console.log('error')
         ; })
-
     
     event.preventDefault();
   }
@@ -84,7 +85,7 @@ export class App extends Component {
   handleCreateJob(event) {
     const pickUpAddress = this.state.pickUpAddress
     const dropOffAddress = this.state.dropOffAddress
-    const responseApi = fetch('https://stuart-­frontend-­challenge.now.sh/jobs', {
+    const responseApi = fetch(`${BASEURL}/jobs`, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
