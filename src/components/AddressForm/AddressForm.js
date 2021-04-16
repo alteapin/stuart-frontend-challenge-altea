@@ -18,12 +18,11 @@ class AddressForm extends Component {
             <div className="form-container">
                 <form>
                     <div>
-                        {pickUpAddress === geocodedPickUpAddress && pickUpAddress !== ''
-                        ?
+                        {pickUpAddress === geocodedPickUpAddress && !(pickUpAddress === '') ?
                             <img className="form-image"
                             src={pickUpImageValid} alt="blank" /> 
 
-                            : pickUpAddress !== geocodedPickUpAddress && pickUpAddress !== '' ?
+                            : !(pickUpAddress === geocodedPickUpAddress) && !(pickUpAddress === '') ?
                             <img className="form-image"
                             src={pickUpImageError} alt="blank" /> 
 

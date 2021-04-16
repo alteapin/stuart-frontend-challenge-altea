@@ -52,18 +52,32 @@ export class App extends Component {
     responseApi
       .then(response => response.json())
       .then(data => {
-        field.name === 'pickUpAddress' ? this.setState({
-          geocodedPickUpAddress: data.address,
-          pickUpLatitude: data.latitude,
-          pickUpLongitude: data.longitude,
-          isValidPickUp: true
-        }) : this.setState({
-          geocodedDropOffAddress: data.address,
-          dropOffLatitude: data.latitude,
-          dropOffLongitude: data.longitude,
-          isValidDropOff: true
-        }); })
+          field.name === 'pickUpAddress' && data.code === 'GEOCODE_ERROR' ? 
+            this.setState({
+              isValidPickUp: false
+              }) 
+        : field.name === 'pickUpAddress' && data.code !== 'GEOCODE_ERROR' ? 
+              this.setState({
+                geocodedPickUpAddress: data.address,
+                pickUpLatitude: data.latitude,
+                pickUpLongitude: data.longitude,
+                isValidPickUp: true
+              }) 
+        : field.name === 'dropOffAddress' && data.code === 'GEOCODE_ERROR' ? 
+              this.setState({
+                isValidDropOff: false
+              }) 
+        : field.name === 'dropOffAddress' && data.code !== 'GEOCODE_ERROR' ? 
+              this.setState({
+                geocodedDropOffAddress: data.address,
+                dropOffLatitude: data.latitude,
+                dropOffLongitude: data.longitude,
+                isValidDropOff: true
+                }) 
+           : console.log('error')
+        ; })
 
+    
     event.preventDefault();
   }
 
