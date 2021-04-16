@@ -136,7 +136,7 @@ export class App extends Component {
         <header className="App-header">
           <AddressForm    
           onChange={this.handleInputChange} 
-          onBlur={this.handleGeocodeAddress}
+          onKeyUp={this.handleGeocodeAddress}
           onClick={this.handleCreateJob} 
           pickUpAddress={pickUpAddress}
           dropOffAddress={dropOffAddress} 
